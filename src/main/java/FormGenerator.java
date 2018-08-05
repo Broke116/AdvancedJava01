@@ -20,12 +20,12 @@ public class FormGenerator {
         }
         Form form = (Form) classData.getAnnotation(Form.class);
         String label = form == null ? "Yet another form" : form.name();
-        generatedHtml += "<fieldset><legend>" + label + "</legend>";
+        generatedHtml += "<form><fieldset><legend>" + label + "</legend>";
         Field[] fields = classData.getFields();
         for (Field field : fields) {
             generatedHtml += generateField(field);
         }
-        return generatedHtml + "</fieldset>";
+        return generatedHtml + "</fieldset></form>";
     }
 
     public String generateField(Field field) {
